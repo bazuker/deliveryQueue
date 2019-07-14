@@ -1,6 +1,11 @@
 # DeliveryQueue
+[![Go Report Card](https://goreportcard.com/badge/github.com/kisulken/deliveryQueue)](https://goreportcard.com/report/github.com/kisulken/deliveryQueue)
 
 DeliveryQueue is a queue with embedded rate limiter that guarantees that delivery function will not be triggered more than specified number of times per second.
+
+```Bash
+go get -u github.com/kisulken/deliveryQueue
+```
 
 ## Example
 ```Go
