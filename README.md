@@ -5,7 +5,7 @@ DeliveryQueue is a queue with embedded rate limiter that guarantees that deliver
 ## Example
 ```Go
 const (
-	MaxMessagesPerSecond = 31
+	MaxMessagesPerSecond = 30
 	MessagesToDeliver = 120
 )
 
@@ -31,4 +31,14 @@ func main() {
 	wg.Wait()
 	log.Printf("Delivered %d messages in %f seconds", MessagesToDeliver, time.Now().Sub(start).Seconds())
 }
+```
+
+```
+2019/07/13 17:25:57 All items are submitted
+2019/07/13 17:25:57 1
+2019/07/13 17:25:57 2
+...
+2019/07/13 17:26:01 119
+2019/07/13 17:26:01 120
+2019/07/13 17:26:01 Delivered 120 messages in 4.148081 seconds
 ```

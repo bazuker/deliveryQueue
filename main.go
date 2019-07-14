@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	MaxMessagesPerSecond = 31
-	MessagesToDeliver = 120
+	MaxMessagesPerSecond = 30
+	MessagesToDeliver    = 120
 )
 
 func main() {
