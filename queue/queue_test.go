@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// This tests only ensures workability of the algorithm.
+// This test only ensures workability of the algorithm.
 // Incompatible with race testing
 func TestDeliveryQueue(t *testing.T) {
 	const MaxMessagesPerSecond = 31
@@ -26,7 +26,7 @@ func TestDeliveryQueue(t *testing.T) {
 		dq.Add(i)
 	}
 
-	maxSecondsToRun := time.Second*time.Duration(math.Round(MessagesToDeliver/MaxMessagesPerSecond)+2)
+	maxSecondsToRun := time.Second * time.Duration(math.Round(MessagesToDeliver/MaxMessagesPerSecond)+2)
 
 	afterFuncTimer := time.AfterFunc(maxSecondsToRun, func() {
 		delivered := atomic.LoadInt32(&done)
