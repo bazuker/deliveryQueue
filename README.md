@@ -25,7 +25,7 @@ func main() {
 
 	wg.Add(MessagesToDeliver)
 
-	log.Println("All items are submitted")
+	log.Println("All messages are submitted")
 
 	start := time.Now()
 	wg.Wait()
@@ -34,7 +34,7 @@ func main() {
 ```
 
 ```
-2019/07/13 17:25:57 All items are submitted
+2019/07/13 17:25:57 All messages are submitted
 2019/07/13 17:25:57 1
 2019/07/13 17:25:57 2
 ...

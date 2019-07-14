@@ -28,7 +28,7 @@ func main() {
 
 	wg.Add(MessagesToDeliver)
 
-	log.Println("All items are submitted")
+	log.Println("All messages are submitted")
 
 	start := time.Now()
 	wg.Wait()
