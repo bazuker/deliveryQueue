@@ -9,7 +9,10 @@ import (
 
 const stop = 1
 
-var ErrInvalidMaxOps = errors.New("maximum operations per second has to be greater than zero")
+var (
+	ErrInvalidMaxOps   = errors.New("maximum operations per second has to be greater than zero")
+	ErrDeliveryFuncNil = errors.New("delivery function is nil")
+)
 
 type DeliveryFunc = func(item interface{})
 
@@ -21,12 +24,15 @@ type DeliveryQueue struct {
 	interval     time.Duration
 	lastDelivery time.Time
 	deliver      DeliveryFunc
-	stop		 int32
+	stop         int32
 }
 
 func NewDeliveryQueue(maxOperationsPerSecond int, deliveryFunc DeliveryFunc) (*DeliveryQueue, error) {
 	if maxOperationsPerSecond < 1 {
 		return nil, ErrInvalidMaxOps
+	}
+	if deliveryFunc == nil {
+		return nil, ErrDeliveryFuncNil
 	}
 	return &DeliveryQueue{
 		buffer:       &buffer.Buffer{},
