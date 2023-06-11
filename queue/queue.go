@@ -1,7 +1,7 @@
 package queue
 
 import (
-	"github.com/kisulken/deliveryQueue/queue/buffer"
+	"deliveryQueue/queue/buffer"
 	"github.com/pkg/errors"
 	"sync/atomic"
 	"time"
